@@ -2,15 +2,15 @@
 # used to ignore the obvious things
 
 # Powerpoints and word documents (since I only use open documents)
-
 *.ppt
 *.doc
 *.docx
 
 
-# gedit likes to save ~ files. Don't need those.
-*~
-
+# My instructor gives a bunch of extra things I don't need in
+# his homeworks, which I throw in a folder called "fred's shit".
+# This should hide those folders.
+*fred\'s\ shit*
 
 # also ignore compiled output, including pdfs
 *.out
