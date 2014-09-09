@@ -13,7 +13,7 @@
 *fred\'s\ shit*
 
 # also ignore compiled output, including pdfs
-*.out
+*.o
 *.pdf
 
 # ignore zips
