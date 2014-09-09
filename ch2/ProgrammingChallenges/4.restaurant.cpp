@@ -10,73 +10,31 @@
 //  at Catawba Valley Community College
 
 #include <iostream>
-#include <string>
-#include <sstream>
-#include <cmath>
-
+#include <iomanip>
 using namespace std;
 
-// toDollars turns an integer cent amount into a pretty little string
-// that takes up exactly 7 characters, assuming you give it less than $1000.00
-// If the amount is >$1000,00 then you'll just have a wider number.
-string toDollars( int cents ) {
-	string dollars;           // what we're going to return
-	string prefix;            // a the amount of padding for proper format
-	ostringstream converter;  // intermediate variable for conversion
-
-	// convert amount to stream using sstream library
-	converter << cents;
-
-	// then convert that stream to the string we need
-	dollars = converter.str();
-
-	// this structure handles padding in front of the number
-	if ( cents < 0 ) {
-		// this is not designed to handle negatives. this problem
-		// would be better addressed by changing types to unsigned
-		// but this program is already needlessly complicated.
-		return " Nope! ";
-	} else if ( cents < 10 ) {
-		prefix = "$  0";          // same prefix as <100
-		dollars = "0" + dollars;  // but we also need that leading zero
-	} else if ( cents < 100 ) {
-		prefix = "$  0";          // need a 0 before the decimal
-	} else if ( cents < 1000 ) {
-		prefix = "$  ";           // need two spaces
-	} else if ( cents < 10000 ) {
-		prefix = "$ ";            // only need one
-	} else {
-		prefix = "$";             // this catches everything else
-	}
-
-	// now, modify dollars to be printed correctly by squeezing a . before
-	// the last two characters in the string and adding the prefix
-	dollars = prefix + dollars.substr( 0 , dollars.size() - 2 ) + '.'
-	           + dollars.substr( dollars.size() - 2 , dollars.size() );
-
-	return dollars;
-}
-
 int main() {
-	int meal = 4450;           // meal cost before tax/tips, in cents
-	double const TAX = 0.0675; // percentage coefficient added for tax
-	double const TIP = 0.15;   // percentage coefficient you tip
-	int subtotal, total;       // resulting bill totals, in cents
+	double meal = 44.50;        // meal cost before tax/tips
+	double const TAX = 0.0675;  // percentage coefficient added for tax
+	double const TIP = 0.15;    // percentage coefficient you tip
+	double subtotal, total;     // resulting bill totals, in cents
 	
 	// our 'reciept' of output values
-	cout << " Meal Cost: " << toDollars( meal ) << endl;
-	cout << "Tax Amount: " << toDollars( round( meal * TAX ) ) << endl;
+	cout << " Meal Cost: $"
+	     << fixed << showpoint << setprecision(2) // formatting
+	     << setw(7) << meal << endl;
+	cout << "Tax Amount: $" << setw(7) << meal * TAX << endl;
 
-	subtotal = round( meal * TAX + meal ); // do the tax calculation
+	subtotal =  meal * TAX + meal; // do the tax calculation
 
-	cout << "-------------------" << endl;
-	cout << "  Subtotal: " << toDollars( subtotal ) << endl;
-	cout << "Tip Amount: " << toDollars( round( subtotal * TIP ) ) << endl;
+	cout << "--------------------" << endl;
+	cout << "  Subtotal: $" << setw(7) << subtotal << endl;
+	cout << "Tip Amount: $" << setw(7) << subtotal * TIP << endl;
 
-	total = round( subtotal * TIP + subtotal ); // do the same for tips
+	total = subtotal * TIP + subtotal; // do the same for tips
 
-	cout << "-------------------" << endl;
-	cout << " Total Due: " << toDollars( total ) << endl;
+	cout << "--------------------" << endl;
+	cout << " Total Due: $" << setw(7) << total << endl;
 
 	return 0;
 }
