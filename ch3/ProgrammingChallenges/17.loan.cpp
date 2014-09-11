@@ -18,4 +18,57 @@
 // Amount Paid Back:       $ 11957.15
 // Interest Paid:          $  1957.15
 //
-//
+// written by Walter Vaughan for CSC 134, section 200, Fall 2014
+//  at Catawba Valley Community College
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main() {
+	double loanAmt, rate;    // input variables 
+	int    numPayments;
+	
+	double monthlyPayment;   // output variable
+	
+	// gather input
+	cout << "Enter the Loan Amount: ";
+	cin >> loanAmt;
+	cout << "Enter the Monthly Interest Rate (as a decimal): ";
+	cin >> rate;
+	cout << "Enter the desired number of payments: ";
+	cin >> numPayments;
+	
+	// generate the exact amount
+	monthlyPayment = (rate * pow(1+rate, numPayments))
+	                 / (pow(1+rate, numPayments) - 1)
+	                 * loanAmt;
+	
+	// we need to round up the amount (in cents) because financial companies
+	// like to pull that shit. If we round down the amount, we could end up 
+	// paying too little to match the total interest amount, and if we don't 
+	// round at all, our payments will not sum to the calculated interest rate.
+	monthlyPayment = ceil( monthlyPayment * 100.0 ) / 100.0;
+	
+	// output the financial data
+	cout << "Loan Amount:            $" 
+	     << setw(9) << fixed << setprecision(2) // formatting
+	     << loanAmt << endl;
+	cout << "Monthly Interest Rate: "
+	     << setw(9) << fixed << setprecision(2)
+	     << rate * 100 << " %" << endl;
+	cout << "Number of Payments:      "
+	     << setw(9) << numPayments << endl;
+	cout << "Monthly Payment:        $"
+	     << setw(9) << fixed << setprecision(2) 
+	     << monthlyPayment << endl;
+	cout << "Amount Paid Back:       $"
+	     << setw(9) << fixed << setprecision(2)
+	     << monthlyPayment * numPayments << endl;
+	cout << "Interest Paid:          $"
+	     << setw(9) << fixed << setprecision(2)
+	     << ( monthlyPayment * numPayments ) - loanAmt << endl;
+
+	return 0;
+}
