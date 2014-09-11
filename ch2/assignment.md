@@ -1,9 +1,5 @@
 The homework assignment for chapter 2 is to do the following,
 
-1. Read the chapter
-2. View the presentation
-3. Complete and upload to this Blackboard link (HW Ch 2 link above), your solutions to the following:
-
 All exercises from the chapter 2 Lab Manual.
 
 Checkpoint exercises from the text: 2.1, 2.2, 2.5, 2.7, 2.11, 2.12, 2.15, 2.16, 2.17, 2.19, 2.20, 2.21, 2.24, 2.25
