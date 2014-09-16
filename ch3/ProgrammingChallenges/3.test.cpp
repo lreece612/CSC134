@@ -13,16 +13,18 @@
 using namespace std;
 
 int main() {
-	float scores[5];  // holds each test score
-	float avg;        // average of all scores
+	const int NUM_SCORES = 5;  // how many scores we're averaging
+	float score;               // holds a test score
+	float avg;                 // average of all scores
 	
 	// gather user input and accumulate the scores
-	cout << "Enter 5 grades, separated by spaces, pressing enter when done.\n";
-	for ( int i = 0; i < 5; i++ ) {
-		cin >> scores[i];  // store the value
-		avg += scores[i];  // accumulate to total scores
+	cout << "Enter " << NUM_SCORES
+	     << " grades, separated by spaces, pressing enter when done.\n";
+	for ( int i = 0; i < NUM_SCORES; i++ ) {
+		cin >> score;  // store the value
+		avg += score;  // accumulate to total scores
 	}
-	avg /= 5;              // and divide by our number of scores to get average
+	avg /= NUM_SCORES; // divide by number of scores to get avg
 	
 	// output the result
 	cout << "Average: " << fixed << showpoint << setprecision(1)
