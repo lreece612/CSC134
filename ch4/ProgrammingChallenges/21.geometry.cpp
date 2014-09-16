@@ -38,7 +38,7 @@
 // written by Walter B. Vaughan for CSC 134, section 200, Fall 2014
 //  at Catawba Valley Community College
 
-#include <iostream>  // 
+#include <iostream>
 #include <limits>    // for numeric_limits, for clearing cin
 #include <cmath>     // for pow()
 #include <string>    // for function argument
@@ -53,14 +53,14 @@ int cinNumber( double &num, string label) {
 		cout << "You didn't give me a valid number for " << label << ".\n";
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		num = 0;
+		num = 0; // make sure that we don't have some weird value for num
 		return 0;
 	} else if (num < 0) {  // make sure input is positive, otherwise complain
 		cout << "The " << label << " is a magnitude, it can't be negative.\n";
 		return 0;
 	}
 	
-	return 1;
+	return 1; // success
 }
 
 // formulas for each shape
@@ -121,10 +121,9 @@ void Triangle() {
 	return;
 }
 
-// main loop
 ////////////////////////////////////////////////////////////////////////////////
 int main() {
-	char selection;
+	char selection; // which option we select
 	const char* prompt = "\n"
 	                     "    Geometry Calculator\n"
 	                     "\n"
@@ -137,17 +136,17 @@ int main() {
 	
 	// main loop
 	do {
-		// input 
+		// input which function we'll use
 		cout << prompt;
 		cin >> selection;
 		cout << '\n';
 		
-		// pick what you want to calculate and then run the relavant function
+		// run the relavant function
 		switch (selection) {
 			case '1': Circle();    break;
 			case '2': Rectangle(); break;
 			case '3': Triangle();  break;
-			case '4':              break;
+			case '4':              break; // do nothing, wait 'til end of loop.
 			default: cout << "Invalid Selection, try again.";
 			         cin.clear();
 			         cin.ignore(numeric_limits<streamsize>::max(), '\n');
