@@ -37,3 +37,123 @@
 //
 // written by Walter B. Vaughan for CSC 134, section 200, Fall 2014
 //  at Catawba Valley Community College
+
+#include <iostream>  // 
+#include <limits>    // for numeric_limits, for clearing cin
+#include <cmath>     // for pow()
+#include <string>    // for function argument
+using namespace std;
+
+
+// error-proof way of extracting postive number of type double from cin.
+// it extracts the number into the variable passed by the first argument.
+// returns 0 on fail, returns 1 if successful.
+int cinNumber( double &num, string label) {
+	if ( !(cin >> num) ) { // check that the input here is valid.
+		cout << "You didn't give me a valid number for " << label << ".\n";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		num = 0;
+		return 0;
+	} else if (num < 0) {  // make sure input is positive, otherwise complain
+		cout << "The " << label << " is a magnitude, it can't be negative.\n";
+		return 0;
+	}
+	
+	return 1;
+}
+
+// formulas for each shape
+////////////////////////////////////////////////////////////////////////////////
+void Circle() {
+	double radius;
+	const double PI = 3.14159;
+	
+	// prompt for inputs
+	cout << "1. Calculate the Area of a Circle\n"
+	        "What is the Radius of the circle? ";
+	if ( !(cinNumber(radius, "Radius")) ) return;
+	cout << '\n';
+
+	// return the formula, step by step
+	cout << "Area = PI * Radius ^ 2\n"
+	        "Area = " << PI << " * " << radius << " ^ 2\n"
+	        "Area = " << PI << " * " << pow( radius, 2 ) << "\n"
+	        "Area = " << PI * pow( radius, 2 ) << "\n\n";
+	
+	return;
+}
+
+void Rectangle() {
+	double length, width;
+		
+	// prompt for inputs
+	cout << "2. Calculate the Area of a Rectangle\n"
+	        "What is the Length of the rectangle? ";
+	if ( !(cinNumber(length, "Length")) ) return;
+	cout << "What is the Width of the rectangle? ";
+	if ( !(cinNumber(width , "Width" )) ) return;
+	cout << '\n';
+	
+	// return the formula, step by step
+	cout << "Area = Length * Width\n"
+	        "Area = " << length << " * " << width << "\n"
+	        "Area = " << length * width << "\n\n";
+	return;
+}
+
+void Triangle() {
+	double base, height;
+		
+	// prompt for inputs
+	cout << "3. Calculate the Area of a Triangle\n"
+	        "What is the length of the Base of the triangle? ";
+	if ( !(cinNumber(base  , "Base"  )) ) return;
+	cout << "What is the Height of the triangle? ";
+	if ( !(cinNumber(height, "Height")) ) return;
+	cout << '\n';
+	
+	// return the formula, step by step
+	cout << "Area = 1/2 * Base * Height\n"
+	        "Area = 1/2 * " << base << " * " << height << "\n"
+	        "Area = 1/2 * " << base * height << "\n"
+	        "Area = " << 0.5 * base * height << "\n\n";
+	return;
+}
+
+// main loop
+////////////////////////////////////////////////////////////////////////////////
+int main() {
+	char selection;
+	const char* prompt = "\n"
+	                     "    Geometry Calculator\n"
+	                     "\n"
+	                     "    1. Calculate the Area of a Circle\n"
+	                     "    2. Calculate the Area of a Rectangle\n"
+	                     "    3. Calculate the Area of a Triangle\n"
+	                     "    4. Quit\n"
+	                     "\n"
+	                     "    Enter your choice (1-4): ";
+	
+	// main loop
+	do {
+		// input 
+		cout << prompt;
+		cin >> selection;
+		cout << '\n';
+		
+		// pick what you want to calculate and then run the relavant function
+		switch (selection) {
+			case '1': Circle();    break;
+			case '2': Rectangle(); break;
+			case '3': Triangle();  break;
+			case '4':              break;
+			default: cout << "Invalid Selection, try again.";
+			         cin.clear();
+			         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			         break;
+		}
+	} while ( selection != '4' );
+	
+	return 0;
+}
