@@ -22,7 +22,7 @@ int main()
 	cin >> radius;
 	
 	// You must complete the program.
-	volume = M_PI * pow( radius, 2 ) * height;
+	volume = M_PI * radius * radius * height;
 	cout << "The volume is " << volume << "\n";
 	
 	return 0;
