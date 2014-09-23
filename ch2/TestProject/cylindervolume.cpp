@@ -28,7 +28,7 @@
 
 int main() {
 	double height, diameter; // dimensions of the cylinder, in inches
-	double volume;              // computer volume of cylinder, in fluid ounces
+	double volume;           // computed volume of cylinder, in fluid ounces
 	
 	// input
 	std::cout << "-- Cylinder Volume Calculator --\n"
