@@ -1,0 +1,52 @@
+% A template for homeworks that I'll complete in CSC 134
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{TESTING PAGE}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{MidnightBlue},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+\section*{Questions}
+
+\begin{enumerate}
+	\item The correct answer would be \lstinline{const double y = 24.632;}.
+	\item More correct answers go here.
+	\item And a final, slightly more correct answer follows:
+	\begin{lstlisting}
+// does some C++ things and then boops
+#include <iostream>
+int main() {
+	const char GRADE = 'A';
+	cout << "My grade is " << GRADE << " in CSC 134" << endl;
+	cout << "because I can computer good." << endl;
+}
+	\end{lstlisting}
+\end{enumerate}
+
+\end{document}
