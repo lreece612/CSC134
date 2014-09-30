@@ -12,11 +12,7 @@
 
 #include <iostream>
 #include <iomanip>
-using std::cout;
-using std::cin;
-using std::setw;
-using std::left;
-using std::endl;
+using namespace std;
 
 int main() {
 	const int NUM_OPTIONS = 4; // however many options we have to choose from
