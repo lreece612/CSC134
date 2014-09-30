@@ -1,0 +1,219 @@
+% Lab 5 writeup
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Lab 5}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+
+\usepackage{indentfirst}
+
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{MidnightBlue},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+\section*{Pre-Lab Questions}
+\begin{enumerate}
+	\item A block of code that repeats forever is called \emph{an infinite loop}.
+	\item To keep track of the number of times a particular loop is repeated, one
+can use a \emph{counter}.
+	\item An event controlled loop that is always executed at least once is the \emph{post-test loop}.
+	\item An event controlled loop that is not guaranteed to execute at least once is
+the \emph{pre-test loop}.
+	\item In the conditional \lstinline{if(++number < 9)}, the comparison \lstinline{number < 9} is made \emph{second} and \lstinline{number} is incremented \emph{first}.
+	\item In the conditional \lstinline{if(number++ < 9)}, the comparison \lstinline{number < 9} is made \emph{first} and \lstinline{number} is incremented \emph{second}.
+	\item A loop within a loop is called a \emph{nested loop}.
+	\item List the preprocessor directive that is used to allow data and output files to
+be used in the program. \lstinline{#include <fstream>}
+	\item To write out the first 12 positive integers and their cubes, one should use
+a \emph{for} loop.
+	\item A \emph{sentinel} value is used to indicate the end of a list of values. It can be used to control a \lstinline{while} loop.
+	\item In a nested loop the \emph{inner} loop goes through all of its iterations for each iteration of the \emph{outer} loop.
+\end{enumerate}
+
+
+\section*{\textsc{Lab 5.1} --- Working with the \texttt{while} Loop}
+
+	\textbf{Exercise 1:} The inital version of the program \texttt{while.cpp} is not user-friendly because from the outside, there is no indication of how to keep the program from looping endlessly. There should be a notice that typing the character \lstinline{`x`} will end the program.
+	
+	\textbf{Exercise 3:} Changing the \lstinline{while} loop to a \lstinline{do-while} loop yields no change, because the loop is already guaranteed to execute at least once thanks to the assignment \lstinline{char letter = 'a';}.
+	
+	\textbf{Exercise 5:} Running the program after adding the required code yields the expected results. Even inputting \lstinline{0} for one or more months gives correct results. Entering \lstinline{-1} for the first month exits the program and correctly displays the message \lstinline{"No data has been entered"}. The only numerical data that should not be input is negative rainfall amounts, which while syntactically correct, are logically inconsistent with the problem.
+	
+	\textbf{Exercise 6:} The purpose of the \lstinline{if (month == 1)} section is to avoid stating the total rainfall over 0 months, under the assumption that the first number input was \lstinline{-1} and \lstinline{month} was never incremented.
+
+
+\section*{\textsc{Lab 5.2} --- Working with the \texttt{do-while} Loop}
+
+	\textbf{Exercise 1} was performed successfully, and the record of my testing is as follows:
+	
+	\small\begin{verbatim}
+wbv@mbp-arch > make dowhile.o
+g++ -Wall -pedantic dowhile.cpp -o dowhile.o
+wbv@mbp-arch > ./dowhile.o 
+
+
+Hot Beverage Menu
+
+A: Coffee         $1.00
+B: Tea            $ .75
+C: Hot Chocolate  $1.25
+D: Cappuccino     $2.50
+
+
+Enter the beverage A,B,C, or D you desire
+Enter E to exit the program
+
+a
+How many cups would you like?
+1
+The total cost is $ 1.00
+
+
+Hot Beverage Menu
+
+A: Coffee         $1.00
+B: Tea            $ .75
+C: Hot Chocolate  $1.25
+D: Cappuccino     $2.50
+
+
+Enter the beverage A,B,C, or D you desire
+Enter E to exit the program
+
+B
+How many cups would you like?
+4
+The total cost is $ 3.00
+
+
+Hot Beverage Menu
+
+A: Coffee         $1.00
+B: Tea            $ .75
+C: Hot Chocolate  $1.25
+D: Cappuccino     $2.50
+
+
+Enter the beverage A,B,C, or D you desire
+Enter E to exit the program
+
+C
+How many cups would you like?
+99
+The total cost is $ 123.75
+
+
+Hot Beverage Menu
+
+A: Coffee         $1.00
+B: Tea            $ .75
+C: Hot Chocolate  $1.25
+D: Cappuccino     $2.50
+
+
+Enter the beverage A,B,C, or D you desire
+Enter E to exit the program
+
+d
+How many cups would you like?
+3
+The total cost is $ 7.50
+
+
+Hot Beverage Menu
+
+A: Coffee         $1.00
+B: Tea            $ .75
+C: Hot Chocolate  $1.25
+D: Cappuccino     $2.50
+
+
+Enter the beverage A,B,C, or D you desire
+Enter E to exit the program
+
+g
+Selection 'g' is invalid.
+ Try again please
+
+
+Hot Beverage Menu
+
+A: Coffee         $1.00
+B: Tea            $ .75
+C: Hot Chocolate  $1.25
+D: Cappuccino     $2.50
+
+
+Enter the beverage A,B,C, or D you desire
+Enter E to exit the program
+
+G
+Selection 'G' is invalid.
+ Try again please
+
+
+Hot Beverage Menu
+
+A: Coffee         $1.00
+B: Tea            $ .75
+C: Hot Chocolate  $1.25
+D: Cappuccino     $2.50
+
+
+Enter the beverage A,B,C, or D you desire
+Enter E to exit the program
+
+e
+ Please come again
+	\end{verbatim}\normalsize
+	
+	\textbf{Exercise 2:} In the previous section, I used \lstinline{'g'} and \lstinline{'G'} as example selections not in the valid range. The program returned my statement \texttt{Selection 'G' is invalid. Try again please} and prompted the menu once again.
+	
+	\textbf{Exercise 3:} Changing \lstinline{if (validBeverage == true)} to \lstinline{if (validBeverage)} yields no change in the function of the program, because in either case of \lstinline{validBeverage} being \lstinline{true} or \lstinline{false}, the evaluation of the contents of \lstinline{validBeverage} gives the same result as the evaluation of the expression \lstinline{(validBeverage == true)}.
+	
+
+\section*{\textsc{Lab 5.3} --- Working with the \texttt{for} Loop}
+	
+	\textbf{Exercise 1:} The \lstinline{static_cast} is necessary because the divisors are both \lstinline{int} variables, but the desired mean needs to use floating-point division. Removing the \lstinline{static_cast} truncates the answer to mean at the decimal point, rounding down to the closest integer. It has no effect on odd inputs.
+	
+	\textbf{Exercise 2:} Inputting a fractional number makes the program truncate the input to before the decimal place. For example, inputting \texttt{2.99} gives the result \texttt{The mean average of the first 2 positive integers is 1.5}, the same result you would get from an input of \texttt{2}.
+	
+	\textbf{Exercise 3:} The changes have been made to accomodate a specific range of positive numbers and are included in the file \texttt{for.cpp}. An alternate, overhauled version of the solution to the problem is included in the file \texttt{for.better.cpp}.
+	
+
+\section*{\textsc{Lab 5.4} --- Nested Loops}
+\noindent	The appropriate modifications have been made to the file, which is included as \texttt{nested.cpp}.
+	
+
+\section*{\textsc{Lab 5.5} --- Reading and Writing to a File}
+\noindent	The appropriate additions have been made to the file, which is included as \texttt{billfile.cpp}.
+
+
+\section*{\textsc{Lab 5.6} --- Student Generated Code Assignments}
+
+
+\end{document}
