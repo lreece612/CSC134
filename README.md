@@ -11,7 +11,7 @@ Homework is organized into folders by chapter, ex. [ch1](https://github.com/wbv/
 
 The folder called [experiments](https://github.com/wbv/CSC134/tree/master/experiments) holds miscellaneous programs which may or may not contain any degree of usefulness.
 
-Each folder containing source code has a generic [Makefile](https://github.com/wbv/CSC134/blob/master/ch1/Lab1/Makefile) which simply compiles all of the source files in a directory into their own individual programs, or allows for individual files to be compiled. It is copy-pasted into various project folders all over, as needed, because I haven't figured out a better way of doing it yet.
+Each folder containing source code has a link to a generic [Makefile](https://github.com/wbv/CSC134/blob/master/Makefile) which simply compiles all of the source files in a directory into their own individual programs, or allows for individual files to be compiled. It compiles `*.cpp` files into `*.o` binary files (I can't think of a more appropraite extension to use, even though that extension usually refers to object files) and converts `*.tex` files into `*.pdf`s using pdfLaTeX. Previously, the `Makefile` only compiled C++ programs, and that original version is kept as `Makefile_OLD`.
 
 ## About the class
 All the work that I'm doing is in the context of a course offered at Catawba Valley Community College, namely CSC 134. The book being used for this course is:
