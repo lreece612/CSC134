@@ -139,10 +139,10 @@ __________________________________________________________________|_____________
 	if ( totalCost == budget ) {
 		cout << "   Your budgeting is flawless.  :D\n\n";
 	} else if ( totalCost > budget ) {
-		cout << "   You were $ " << setprecision(2) << fixed
+		cout << "   You are $ " << setprecision(2) << fixed
 		     << (totalCost - budget) << " over-budget.  :(\n\n";
 	} else {
-		cout << "   You were $ " << setprecision(2) << fixed
+		cout << "   You are $ " << setprecision(2) << fixed
 		     << (budget - totalCost) << " under-budget.  :)\n\n";
 	}
 
