@@ -46,7 +46,7 @@ int main() {
 	        " For example use, \'Car Payment\' instead of\n"
 	        " \'Payment to Bob\'s Bargain Bugattis on my old 1956 Type 101\'.\n"
 	        "\n"
-			" Omit commas when entering dollar amounts.\n"
+	        " Omit commas when entering dollar amounts.\n"
 	        "\n"
 	        " When you are done entering expenses, enter an empty description\n"
 	        " at the prompt.\n"
