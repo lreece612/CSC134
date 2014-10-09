@@ -13,7 +13,7 @@
 *fred\'s\ shit*
 
 # also ignore compiled output, including pdfs and LaTeX files (dvi, log, aux)
-*.o
+*.elf
 *.dvi
 *.log  
 *.aux  
