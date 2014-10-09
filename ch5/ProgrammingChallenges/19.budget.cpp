@@ -125,7 +125,7 @@ __________________________________________________________________|_____________
 	     << setw(68) << right << "|\n"
 	     << setw(70) << right << "TOTAL EXPENSES  | $ "
 	     << setw(9) << left << fixed << setprecision(2) << totalCost << "\n"
-		 << setw(68) << right << "|\n"
+	     << setw(68) << right << "|\n"
 	     << setw(70) << right << "BUDGET  | $ "
 	     << setw(9) << left << fixed << setprecision(2) << budget << "\n"
 	     << setw(68) << right << "|\n"
