@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
 	// if file isn't found or other problem occurs while opening
 	if ( f.fail() ) {
 		cerr << "ERROR: \'" << FILENAME << "\' was not opened.\n"
-		     << "Make sure the file exists and is not read-protected.\n";
+		     << "Make sure the file exists and you have read permissions.\n";
 		return 1;
 	}
 	
