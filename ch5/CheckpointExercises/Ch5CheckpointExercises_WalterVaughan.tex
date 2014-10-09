@@ -1,0 +1,129 @@
+% Checkpoint Exercises for Chapter 5 Homework Assignment
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Chapter 5 Checkpoint Exercises \\ 
+       \footnotesize{5.2, 5.6, 5.9, 5.10, 5.11, 5.12, 5.13, 5.22, 5.23}}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{Gray},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+% section 5.3 problems
+\section*{Section 5.3}
+
+\begin{description}
+
+	\item[5.2] Code: \begin{lstlisting}
+// Asks the user to enter a number in the range of 10 through 25
+int num;
+bool invalid_input = true;
+while ( invalid_input ) {
+	cout << "Enter a number between 10 and 25, inclusive: ";
+	cin >> num;
+	if ( num < 10 || num > 25 ) {
+		cerr << "Your number is outside the valid range. Please try again.\n";
+		invalid_input = true;
+	} else {
+		invalid_input = false;
+	}
+}
+	\end{lstlisting}
+	
+\end{description}
+
+% section 5.6 problems
+\section*{Section 5.6}
+
+\begin{description}
+	
+	\item[5.6] \lstinline{for ( initialization ; test ; update );}
+	
+	\item[5.9] Code: \begin{lstlisting}
+// displays my name 10 times
+for ( int i = 0 ; i < 10 ; i++ ) {
+	cout << "Walter ";
+}
+cout << '\n';
+	\end{lstlisting}
+	
+	\item[5.10] Code: \begin{lstlisting}
+// displays odd numbers in range 1 through 49
+for ( int n = 1 ; n < 50 ; n += 2 ) {
+	cout << n << '\n';
+}
+	\end{lstlisting}
+	
+	\item[5.11] Code: \begin{lstlisting}
+// displays every fifth number from 0 through 100
+for ( int f = 0 ; f < 101 ; f += 5 ) {
+	cout << f << '\n';
+}
+	\end{lstlisting}
+
+\end{description}
+
+
+%section 5.8 problems
+\section*{Section 5.8}
+
+\begin{description}
+
+	\item[5.12] Code: \begin{lstlisting}
+// loop seven times, asking for a number each time, and giving the sum
+double n = 0, sum = 0;
+for ( int i = 0 ; i < 7 ; i++ ) {
+	cout << "Enter a number: ";
+	cin >> n;
+	sum += n;
+}
+cout << "Sum of numbers entered: " << sum << '\n';
+	\end{lstlisting}
+	
+	\item[5.13] The counter variable is \texttt{x} and the accumulator is \texttt{y}.
+	
+\end{description}
+
+%section 5.11 problems
+\section*{Section 5.11}
+
+\begin{description}
+
+	\item[5.22] The completed program is included as \texttt{5.22.writeten.cpp}:
+	
+		\lstinputlisting{5.22.writeten.cpp}
+		
+	\newpage % to ensure that 5.23 fits on one page
+	
+	\item[5.23] The completed program is included as \texttt{5.23.readten.cpp}:
+	
+		\lstinputlisting{5.23.readten.cpp}
+	
+\end{description}
+
+\end{document}
