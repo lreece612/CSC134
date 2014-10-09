@@ -16,14 +16,14 @@ int main( int argc, char* argv[] ) {
 		return 1;
 	}
 	
-	cout << "Did it open successfully? f.good() = "
+	cout << "Did it open successfully? f.good() [1 is bad] = "
 	     << static_cast<bool>( f.good() ) << '\n';
 	     
 	cout << "Trying to read the first byte of the file...\n";
 	char input_byte;
 	f >> input_byte;
 	cout << "input_byte = " << static_cast<int>(input_byte) << " ... "
-	     << "f.good() = " << static_cast<bool>( f.good() ) << '\n';
+	     << "f.good() [1 is bad] = " << static_cast<bool>( f.good() ) << '\n';
 
 	return 0;
 }
