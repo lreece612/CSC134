@@ -4,7 +4,7 @@
 # written by Walter B. Vaughan for CSC 134
 
 CC=g++
-CC_FLAGS=-Wall -pedantic
+CC_FLAGS=-Wall -pedantic -O2
 
 # these are lists of c++ files
 SOURCES=$(wildcard *.cpp)
