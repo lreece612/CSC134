@@ -1,0 +1,93 @@
+% Checkpoint Exercises for Chapter 6 Homework Assignment
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Chapter 6 Checkpoint Exercises \\ 
+       \footnotesize{6.4, 6.11, 6.12, 6.16, 6.17, 6.18}}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{Gray},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+
+% section 6.2 problems
+\section*{Section 6.2}
+
+\begin{description}
+
+	\item[6.4] The file is included as \texttt{6.4.creditcard.cpp} and contains the following:
+	\lstinputlisting{6.4.creditcard.cpp}
+	
+\end{description}
+
+
+% section 6.9 problems
+\section*{Section 6.9}
+
+\begin{description}
+	
+	\item[6.11] A function may have a single \lstinline{return} value.
+	
+	\item[6.12] The header of that function could look like the following:
+\begin{lstlisting}
+double days( double rate, double time )
+	...
+\end{lstlisting}
+
+\end{description}
+
+
+%section 6.11 problems
+\section*{Section 6.11}
+
+\begin{description}
+
+	\item[6.16] A \lstinline{static} local variable is never destroyed during the entire execution of the program and therefore maintains its value across multiple function calls. However, its scope is limited to inside of that function; the variable is not available outside of the function it's defined in. A global variable, on the other hand, is available throughout the program it is contained in, beginning after it is declared.
+	
+	\item[6.17] The output of that program would be as follows: \begin{verbatim}
+100
+50
+100
+\end{verbatim}
+	
+	\item[6.18] The output of that program would be as follows: \begin{verbatim}
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+\end{verbatim}
+	
+\end{description}
+
+\end{document}
