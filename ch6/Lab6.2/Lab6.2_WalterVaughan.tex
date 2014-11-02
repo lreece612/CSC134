@@ -1,0 +1,154 @@
+% Lab 5 writeup
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Lab 6.2}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\usepackage{pbox} % for the table line-wrapping in section 6.5
+
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{Gray},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Pre-Lab Questions}
+\begin{enumerate}
+    \item Variables of a function that retain their value over multiple calls to the function are called \lstinline{static} variables.
+    \item In C++ all functions have \emph{global} scope.
+    \item Default arguments are usually defined in the \emph{prototype} of the function.
+    \item A function returning a value should never use pass by \emph{reference} parameters.
+    \item Every function that begins with a data type in the heading, rather than the word \lstinline{void}, must have a(n) \lstinline{return} statement somewhere, usually at the end, in its body of instructions.
+    \item A(n) \emph{driver} is a program that tests a function by simply calling it.
+    \item In C++ a block boundary is defined with a pair of \emph{braces} \{\}.
+    \item A(n) \emph{stub} is a dummy function that just indicates that a
+function was called properly.
+    \item Default values are generally not given for pass by \emph{reference} parameters.
+    \item \emph{Overloaded} functions are functions that have the same name but a different parameter list.
+
+\end{enumerate}
+
+\section*{6.5 --- Scope of Variables}
+\begin{description}
+
+    \item[Exercise 1:] \hfill \\
+
+    \begin{tabular}{c c c c c c}
+        GLOBAL & Main & Main (Inner 1) & Main (Inner 2) & Area & Circumference \\
+        \hline
+        \ttfamily \pbox[t]{\textwidth}{ PI \\ RATE \\ findArea \\ findCircumference }
+        & \ttfamily \pbox[t]{\textwidth}{ radius }
+        & \ttfamily \pbox[t]{\textwidth}{ area }
+        & \ttfamily \pbox[t]{\textwidth}{ radius$_2$ \\ circumference }
+        & \ttfamily \pbox[t]{\textwidth}{ rad \\ answer }
+        & \ttfamily \pbox[t]{\textwidth}{ length \\ distance }
+    \end{tabular}
+    \\
+    \\
+
+    \item[Exercises 2 \& 3] were both completed, and the changes made are reflected in the attached version of \texttt{scope.cpp}.
+
+    \item[Exercise 4:] The first inner block of \lstinline{main} has a value of \lstinline{12} for \lstinline{radius} and the second inner block of \lstinline{main} has a value of \lstinline{10} assigned to \lstinline{radius}.
+
+\newpage
+    \item[Exercise 5:] The program compiled and generated the following (expected and actual) output:
+\begin{verbatim}
+Main function outer block
+ PI, RATE, findArea, findCircumference, radius are active here
+
+Main function first inner block
+ PI, RATE, findArea, findCircumference, radius, area are active here
+
+AREA FUNCTION
+
+ PI, RATE, findArea, findCircumference, rad, answer are active here
+
+The radius = 12.00
+The area = 452.16
+
+Main function second inner block
+ PI, RATE, findArea, findCircumference, radius (local),
+ circumference are active here
+
+CIRCUMFERENCE FUNCTION
+
+ PI, RATE, findArea, findCircumference, length, distance are active here
+
+The radius = 10.00
+The circumference = 62.80
+
+Main function after all the calls
+ PI, RATE, findArea, findCircumference, radius are active here
+\end{verbatim}
+
+\end{description}
+\newpage
+
+\section*{6.6 --- Parameters and Local Variables}
+\begin{description}
+
+    \item[Exercise 1:] The expected (and actual) output of the complete program:
+\begin{verbatim}
+ We will now add 95 cents to our dollar total
+We have added another $0.95  to our total
+Our total so far is  $0.95
+The value of our local variable total is $0.95
+Converting cents to dollars resulted in 0.95 dollars
+
+ We will now add 193 cents to our dollar total
+We have added another $1.93  to our total
+Our total so far is  $2.88
+The value of our local variable total is $1.93
+Converting cents to dollars resulted in 1.93 dollars
+
+ We will now add the default value to our dollar total
+We have added another $1.50  to our total
+Our total so far is  $4.38
+The value of our local variable total is $1.50
+Converting cents to dollars resulted in 1.50 dollars
+\end{verbatim}
+
+    \item[Exercise 2] was completed succesfully, and the compiled output matched the expected output.
+
+\end{description}
+
+\section*{6.7 --- Value Returning and Overloading Functions}
+    The completed program is attached as \texttt{convertmoney.cpp}.
+
+\section*{6.8 --- Student Generated Code Assignments}
+\begin{description}
+
+    \item[Option 1] is attached as \texttt{6.8.distances.cpp}.
+
+    \item[Option 2] is attached as \texttt{6.8.baseball.cpp}.
+
+    \item[Option 3] is attached as \texttt{6.8.dentist.cpp}. Some changes were made with regard to the mechanics of answering the first prompt as well as several general formatting choices. The overlying computation and interactive steps are unchanged, and the resulting program still fulfills the criteria of the problem description. The output of the program does not exactly match the "Sample Run" provided in the Lab Manual.
+
+\end{description}
+
+\end{document}
