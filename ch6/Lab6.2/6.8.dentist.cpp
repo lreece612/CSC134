@@ -20,7 +20,7 @@ double total( double, double );
 double total( double, double, double );
 
 int main() {
-    // assume non-member because can always just put 0 for medicine charges
+    // assume non-member, can always just put 0 for medicine charges
     char plan_member = 'N';
 
     double service_charges, test_charges, medicine_charges = 0.00;
@@ -28,8 +28,12 @@ int main() {
 
     std::cout << "Are you a member of the dental plan? [y/N] ";
     std::cin.get(plan_member);
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    // only clear the buffer if a character was successfully extracted
+    if ( static_cast<int>(plan_member) != 10) { // 10 = \n char
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
     std::cout << "Please input the service charge: ";
     std::cin >> service_charges;
