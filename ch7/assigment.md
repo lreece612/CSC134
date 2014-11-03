@@ -15,4 +15,4 @@
     - 2. Rainfall Statistics
     - 6. Number Analysis Program
 
-Due date is Friday, November 14 at 5:00 PM.s
+Due date is Friday, November 14 at 5:00 PM.
