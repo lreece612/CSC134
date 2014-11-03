@@ -1,4 +1,4 @@
-#The homework assignment for Chapter 7 is to do the following:#
+The homework assignment for Chapter 7 is to do the following:
 
 - All exercises from the Chapter 7 Lab. (You may skip LAB 7.3 - Working with Two-Dimensional Arrays)
 
