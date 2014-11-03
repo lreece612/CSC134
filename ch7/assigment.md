@@ -13,8 +13,8 @@ Section 7.11 Vectors: 7.27, 7.31, 7.32
 80, 82, 83, 87
 
 ####Programming Challenges:####
-1. Largest/Smallest Array Values
-2. Rainfall Statistics
-6. Number Analysis Program
+1 - Largest/Smallest Array Values
+2 - Rainfall Statistics
+6 - Number Analysis Program
 
 Due date is Friday, November 14 at 5:00 PM.s
