@@ -1,0 +1,43 @@
+% Find-the-Error Problems for Chapter 7
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Chapter 7 Find the Error \\
+       \footnotesize{80, 82, 83, 87}}
+\date{\vspace{-5ex}}
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\lstset{frame=tb,
+    language=C++,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=left,
+    numberstyle=\color{Gray},
+    keywordstyle=\color{BlueViolet},
+    commentstyle=\color{Gray},
+    stringstyle=\color{OliveGreen},
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{description}
+    \item[80.] \lstinline{size} is not initialized when it is given as the array length parameter, and it also needs to be declared as a \lstinline{const int}, not just an \lstinline{int}.
+    \item[82.] The \lstinline{for} loop is run outside the bounds of the array \lstinline{table}. \lstinline{x < 20;} should be \lstinline{x < 10;}.
+    \item[83.] The initialized values of \lstinline{hours} should be inside a set of braces. It should look like: \lstinline[mathescape]{$\{$ 8, 12, 16 $\}$;}
+    \item[87.] You cannot assign an array to another array. Array variables contain pointers to the address of the first element, and C++ does not allow those addresses to be overwritten. One could use \lstinline{memcpy} since the array only contains \lstinline{int}s.
+\end{description}
+
+\end{document}
