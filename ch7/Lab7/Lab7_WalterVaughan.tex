@@ -1,0 +1,69 @@
+% Lab 7 writeup
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+
+
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Lab 7}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{Gray},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Pre-Lab Questions}
+\begin{enumerate}
+    \item The first subscript of every array in C++ is \texttt{0} and the last is \texttt{1} less than the total number of locations in the array.
+
+    \item The amount of memory allocated to an array is based on the \emph{type of data to be stored} and the \emph{number} of locations or size of the array.
+
+    \item Array initialization and processing is usually done inside a \emph{loop}.
+
+    \item The \lstinline{typedef} statement can be used to declare an array type and is often used for multidimensional array declarations so that when passing arrays as parameters, brackets do not have to be used.
+    \item Multi-dimensional arrays are usually processed within \emph{nested} loops.
+
+    \item Arrays used as arguments are always passed by \emph{pointer}.
+
+
+    \item In passing an array as a parameter to a function that processes it, it is often necessary to pass a parameter that holds the \emph{number} of \emph{elements} used in the array.
+
+    \item A string is an array of \lstinline{char}s.
+
+    \item Upon exiting a loop that reads values into an array, the variable used as a \emph{subscript/counter} to the array will contain the size of that array.
+
+    \item An $n$-dimensional array will be processed within $n$ nested loops when accessing all members of the array.
+\end{enumerate}
+\newpage
+
+\section*{7.1 --- Working with One-Dimensional Arrays}
+\begin{description}
+    \item[Exercise 1:] 
+\end{description}
+
+\end{document}
