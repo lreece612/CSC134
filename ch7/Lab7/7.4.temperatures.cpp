@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include <stdint.h>
+#include <stdint.h> // for uint8_t
 
 #define MAX_NUM_TEMPS 50
 
@@ -25,20 +25,26 @@ float highTemp();
 float lowTemp();
 
 TempArray temps;
+
+// Here, I decided to use uint8_t for counting because the requirements of the
+// program state a hard maximum of 50 indices, so it makes no sense to use a
+// 4-byte integer value. I realize unsigned char does a similar thing, but I
+// believe this is more akin to the code conventions for GNU/Linux
 uint8_t temps_size = 0;
 
 int main() {
     int input_size;
     std::cout << "Please input the number of temperatures to be read\n";
     std::cin >> input_size;
-    temps_size = input_size;
 
-    if ( temps_size < 1 or temps_size > MAX_NUM_TEMPS ) { // bounds checks!
-        std::cerr << "** Invalid number of temperatures. [ " << temps_size
+    if ( input_size < 1 or input_size > MAX_NUM_TEMPS ) { // bounds checks!
+        std::cerr << "** Invalid number of temperatures. [ " << input_size
                   << " ] **\n"
                   << "** Must be between 1 and " << MAX_NUM_TEMPS << " **\n";
         return 1;
     }
+
+    temps_size = input_size;
 
     for ( uint8_t i = 0 ; i < temps_size ; i++ ) {
         std::cout << "Input Temperature " << (i+1) << ":\n";
