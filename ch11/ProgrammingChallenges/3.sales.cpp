@@ -43,16 +43,21 @@ public:
             cout << name << " Q" << (i+1) << " Sales: ";
             do {
                 cin >> qtr_sales[i];
-            } while (qtr_sales[i] < 0);
+            } while (qtr_sales[i] < 0); // input validation
             annual_sales += qtr_sales[i];
         }
         avg_qtr_sales = annual_sales / 4;
     }
 
-    //TODO: finish print() Method
     void print()
     {
-        ;
+        cout << "          Division Name: " << name << '\n'
+             << "    First-Quarter Sales: " << qtr_sales[0] << '\n'
+             << "   Second-Quarter Sales: " << qtr_sales[1] << '\n'
+             << "    Third-Quarter Sales: " << qtr_sales[2] << '\n'
+             << "   Fourth-Quarter Sales: " << qtr_sales[3] << '\n'
+             << "     Total Annual Sales: " << annual_sales << '\n'
+             << "Average Quarterly Sales: " << avg_qtr_sales << '\n';
     }
 };
 
@@ -63,6 +68,14 @@ int main()
     CompanyDivision e ( "East" );
     CompanyDivision w ( "West" );
 
+    cout << '\n';
+    e.print();
+    cout << '\n';
+    w.print();
+    cout << '\n';
+    n.print();
+    cout << '\n';
+    s.print();
 
     return 0;
 }
