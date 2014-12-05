@@ -1,0 +1,110 @@
+% Lab 11 writeup
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+
+
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Lab 11}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{Gray},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Pre-Lab Questions}
+\begin{enumerate}
+    \item The name of a structure is called the \emph{tag}.
+    \item An advantage of structures over arrays is that structures allow one to use items of \emph{different} data types, whereas arrays do not.
+    \item One structure inside of another structure is an example of a \emph{nested structure}.
+    \item The variables declared inside the structure declaration are called the \emph{members} of the structure.
+    \item When initializing structure members, if one structure member is left uninitialized, then all the structure members that follow must be \emph{uninitialized}.
+    \item A user defined data type is often an \emph{abstract data type}.
+    \item Once an array of structures has been defined, you can access an array element using its \emph{index location or subscript}.
+    \item The \emph{dot operator (period)} allows the programmer to access structure members.
+    \item You may not initialize a structure member in the \emph{definition}.
+    \item Like variables, structure members may be used as \emph{function} arguments.
+\end{enumerate}
+\newpage
+
+\section*{11.1 --- Working with Basic Structures}
+    The code was completed and modified as directed in \textbf{Exercises 1 \& 2} and the source codes are included as \texttt{rect\_struct.ex1.cpp} and \texttt{rect\_struct.ex2.cpp}.
+
+\section*{11.2 --- Initializing Structures}
+    The code was completed as directed in \textbf{Exercise 1} and the source code is included as \texttt{init\_struct.cpp}. \textbf{Note for the instructor:} The supplied code used the stream modifier \lstinline{setprecision(2)} but the header containing that modifier's definition (\lstinline{<iomanip>}) was not included by default.
+
+\section*{11.3 --- Arrays of Structures}
+\begin{description}
+    \item[Exercise 1:] The code was completed as directed and the source code is included as \texttt{array\_struct.cpp}.
+    \item[Exercise 2:] The snippet of code \lstinline{(index+1)} is used when outputting which taxpayer because array indices are counted starting with \lstinline{0}, but in English, objects are counted starting from \lstinline{1}, so a taxpayer's position (in English) in the array can be thought of as the value of \lstinline{index} plus \lstinline{1}.
+\end{description}
+
+\section*{11.4 --- Nested Structures}
+\begin{description}
+    \item[Exercise 1:] The code was completed as directed and the source code is included as \texttt{nestedRect\_struct.ex1.cpp}. \textbf{Note for the instructor:} The supplied code referred to the \lstinline{area} and \lstinline{perimeter} members through a nested member \lstinline{attributes} but that member did not exist and was not referenced anywhere in the instructions. The appropriate modifications were made to ensure the code compiled correctly.
+    \item[Exercise 2:] The code was modified as directed and the source code is included as \texttt{nestedRect\_struct.ex2.cpp}.
+    \item[Exercise 3:] The code was modified as directed and the source code is included as \texttt{nestedRect\_struct.ex3.cpp}. I chose to implement the function parameters using pointers.
+\end{description}
+
+\section*{11.5 --- Student Generated Code Assignments}
+\begin{description}
+    \item[Option 1:] The completed program is attached as \texttt{11.5.circ.cpp}. I chose to take a more functional approach to the problem. \lstinline{main()} only has 4 lines to it.
+    \item[Option 2:] The completed program is attached as \texttt{11.5.planes.cpp}.
+\end{description}
+
+
+\newpage
+{\LARGE Source Code Appendix}
+\section*{\texttt{rect\_struct.ex1.cpp}}
+\lstinputlisting{rect_struct.ex1.cpp}
+
+\section*{\texttt{rect\_struct.ex2.cpp}}
+\lstinputlisting{rect_struct.ex2.cpp}
+
+\section*{\texttt{init\_struct.cpp}}
+\lstinputlisting{init_struct.cpp}
+
+\section*{\texttt{array\_struct.cpp}}
+\lstinputlisting{array_struct.cpp}
+
+\section*{\texttt{nestedRect\_struct.ex1.cpp}}
+\lstinputlisting{nestedRect_struct.ex1.cpp}
+
+\section*{\texttt{nestedRect\_struct.ex2.cpp}}
+\lstinputlisting{nestedRect_struct.ex2.cpp}
+
+\section*{\texttt{nestedRect\_struct.ex3.cpp}}
+\lstinputlisting{nestedRect_struct.ex3.cpp}
+
+\section*{\texttt{11.5.circ.cpp}}
+\lstinputlisting{11.5.circ.cpp}
+
+\section*{\texttt{11.5.planes.cpp}}
+\lstinputlisting{11.5.planes.cpp}
+
+\end{document}
