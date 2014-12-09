@@ -22,6 +22,7 @@
 //
 // written by Walter B. Vaughan for CSC 134, section 200, Fall 2014
 //  at Catawba Valley Community College
+
 #include <iostream>
 #include <cstring>   // for strlen
 #include <limits>    // for streamsize max(), double max/min

@@ -18,6 +18,7 @@
 //
 // written by Walter B. Vaughan for CSC 134, section 200, Fall 2014
 //  at Catawba Valley Community College
+
 #include <iostream>
 #include <string>
 #include <sstream> // for numeric -> string conversions
