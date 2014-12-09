@@ -1,0 +1,103 @@
+% Checkpoint Exercises for Chapter 11 Homework Assignment
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Chapter 11 Checkpoint Exercises \\
+       \footnotesize{11.1, 11.2, 11.3, 11.4, 11.5, 11.6, 11.7}}
+\date{\vspace{-5ex}}
+% Section 11.4 Initializing a Structure: 11.1, 11.2, 11.3
+% Section 11.6 Nested Structures: 11.4, 11.5, 11.6, 11.7
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\lstset{frame=tb,
+    language=C++,
+    columns=flexible,
+    keepspaces=true,
+    basicstyle={\small\ttfamily},
+    numbers=left,
+    numberstyle=\color{Gray},
+    keywordstyle=\color{BlueViolet},
+    commentstyle=\color{Gray},
+    stringstyle=\color{OliveGreen},
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Section 11.4 --- }
+\begin{description}
+
+    \item[11.1] The structure would be declared as follows:
+    \begin{lstlisting}
+struct SavingsAccount {
+    std::string number;
+    double      balance,
+                interest_rate,
+                avg_monthly_balance;
+};
+\end{lstlisting}
+
+    \item[11.2] The definition statement for a variable of the \lstinline{SavingsAccount} structure defined above would appear as follows:
+    \begin{lstlisting}
+SavingsAccount acc = {
+    "ACZ43137-B12-7",
+    4512.59,
+    0.04,
+    4217.07
+};
+\end{lstlisting}
+
+    \item[11.3] The program skeleton completed as directed is attached as \texttt{11.3.movie.cpp} and appears as follows:
+    \lstinputlisting{11.3.movie.cpp}
+
+\end{description}
+
+\section*{Section 11.6 --- Nested Structures}
+\begin{description}
+
+    \item[11.4] The definition for ann array of 100 \lstinline{Product} structures would look like the following:
+    \begin{lstlisting}
+Product array[100];
+\end{lstlisting}
+
+    \item[11.5] A loop that will step through the entire array defined in the previous question and set all product descriptions to an empty string, part numbers to zero, and costs to zero might look like the following:
+    \begin{lstlisting}
+for (unsigned short i = 0; i < 100; i++) {
+    array[i].description.clear();  // STL method to make a string empty itself
+    array[i].partNum = 0;
+    array[i].cost = 0;
+}
+\end{lstlisting}
+
+    \item[11.6] The statments to store data in the first element of the previously defined array would look like the following:
+    \begin{lstlisting}
+array[0].description = "Claw hammer";
+array[0].partNum = 547;
+array[0].cost = 8.29;
+\end{lstlisting}
+
+    \item[11.7] A loop that will display the contents of the entire array might look like the following:
+    \begin{lstlisting}
+for (unsigned short i = 0; i < 100; i++) {
+    std::cout << "Product Description: " << array[i].description << '\n';
+    std::cout << "        Part Number: " << array[i].partNum << '\n';
+    std::cout << "       Product Cost: " << array[i].cost << '\n\n';
+}
+\end{lstlisting}
+
+\end{description}
+
+\end{document}
