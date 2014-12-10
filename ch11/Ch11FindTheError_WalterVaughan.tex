@@ -1,0 +1,96 @@
+% Find-the-Error Problems for Chapter 11
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Chapter 11 Find the Error \\
+       \footnotesize{57, 58, 59, 64}}
+\date{\vspace{-5ex}}
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\lstset{frame=tb,
+    language=C++,
+    columns=flexible,
+    keepspaces=true,
+    basicstyle={\small\ttfamily},
+    numbers=left,
+    numberstyle=\color{Gray},
+    keywordstyle=\color{BlueViolet},
+    commentstyle=\color{Gray},
+    stringstyle=\color{OliveGreen},
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{description}
+    \item[57] Code:
+    \begin{lstlisting}
+struct
+{
+    int x;
+    float y;
+};
+\end{lstlisting}
+    The above code is missing a "tag" or name for the structure.
+
+    \item[58] Code:
+    \begin{lstlisting}
+struct Values
+{
+    string name;
+    int age;
+}
+\end{lstlisting}
+    The above code is missing a semicolon at the end of the \lstinline{struct} definition.
+
+    \item[59] Code:
+    \begin{lstlisting}
+struct TwoVals
+{
+    int a, b;
+};
+int main ()
+{
+    TwoVals.a = 10;
+    TwoVals.b = 20;
+    return 0;
+}
+\end{lstlisting}
+    The above code attempts to assign to a \lstinline{struct} named \lstinline{TwoVals} but what was needs to happen is a variable of the type \lstinline{TwoVals} be declared and have the variable's member's values assigned.
+
+
+\newpage % ran out of space!
+
+    \item[64] Code:
+    \begin{lstlisting}
+struct TwoVals
+{
+    int a, b;
+};
+
+int main ()
+{
+    TwoVals varray[10];
+
+    varray.a[0] = 1;
+    return 0;
+}
+\end{lstlisting}
+    The above code has the subscript of the array misplaced. As it appears, the code is trying to assign to the 0th element of the member variable \lstinline{a}, when it should be trying to assign to the member variable \lstinline{a} of the first element of \lstinline{varray}. The \lstinline{[0]} needs to come immediately after the variable array name, like this: \begin{lstlisting}[firstnumber=8]
+    varray[0].a = 1;
+\end{lstlisting}
+\end{description}
+
+\end{document}
