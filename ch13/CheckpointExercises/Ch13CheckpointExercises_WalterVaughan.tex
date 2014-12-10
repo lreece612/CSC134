@@ -1,0 +1,119 @@
+% Checkpoint Exercises for Chapter 13 Homework Assignment
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Chapter 13 Checkpoint Exercises \\
+       \footnotesize{13.1 - 13.12, 13.14, 13.7, 13.21, 31.22}}
+\date{\vspace{-5ex}}
+% Section 13.3, Defining an Instance of a Class: 13.1, 13.2, 13.3, 13.4, 13.5
+% Section 13.6, Inline Member Functions: 13.6, 13.7, 13.8, 13.9, 13.10, 13.11
+% Section 13.9, Destructors: 13.12, 13.14, 13.17
+% Section 13.12, Arrays of Objects: 13.21, 13.22
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\lstset{frame=tb,
+    language=C++,
+    columns=flexible,
+    keepspaces=true,
+    basicstyle={\small\ttfamily},
+    numbers=left,
+    numberstyle=\color{Gray},
+    keywordstyle=\color{BlueViolet},
+    commentstyle=\color{Gray},
+    stringstyle=\color{OliveGreen},
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Section 13.3 --- Defining an Instance of a Class}
+\begin{description}
+
+    \item[13.1] False. Private members of a class can be defined after the public members as long as they are separated in the appropriate sections by the \lstinline{public} and \lstinline{private} labels.
+    \item[13.2] B
+    \item[13.3] A
+    \item[13.4] C
+    \item[13.5] The completed class definition, built from the skeleton provided and as instructed in the problem, is attached as \texttt{13.5.date.cpp} and looks like this:
+\begin{lstlisting}
+class Date
+{
+    private:
+        unsigned month;
+        unsigned day;
+        unsigned year;
+    public:
+        // alternative constructor, uses explicit number input
+        Date(unsigned m, unsigned d, unsigned y) {
+            year = y; month = m; day = d;
+        }
+        // string-based input constructor
+        Date(std::string text) {
+            std::istringstream s (text);
+            char slash; // junk character to discard slashes
+            s >> month >> slash >> day >> slash >> year;
+        }
+        std::string get() {
+            std::ostringstream s;
+            s << month << "/" << day << "/" << year;
+            return s.str();
+        }
+}
+\end{lstlisting}
+\end{description}
+
+\section*{Section 13.6 --- Inline Member Functions}
+\begin{description}
+    \item[13.6] Declaring a class's member variables as \lstinline{private} allows an object to force specific behavior of its data. For example, this could allow a class to override values given to it if they were deemed inappropriate, such as a negative value for the length of a line.
+    \item[13.7] Code outside of a class can store, retrieve, or otherwise modify private members of a class through member accessors and mutators or through other public member functions.
+    \item[13.8] A class specification file contains class declarations or prototypes, whereas a separate class implementation file would contain the actual definitions matching the declarations of a specification file.
+    \item[13.9] An include guard prevents a header file from being \lstinline{#include}ed more than once by setting a macro constant unique to the header file which is originally undefined. Once defined by a preprocessor directive, the contents of the specification file will not be re-introduced to the compiler.
+    \item[13.10] This is a table showing in what file components of a class should be placed. \\ \vspace*{1mm} \\
+        \begin{tabular}{r || l}
+            Class Component & Stored In \\
+            \hline
+            \lstinline{BasePay} class declaration & Specification file \\
+            \lstinline{BasePay} member function definitions & Implementation file \\
+            \lstinline{Overtime} class declaration & Specification file \\
+            \lstinline{Overtime} member function definitions & Implementation file \\
+        \end{tabular}
+    \item[13.11] An inline member function is a member function that is defined (not just declared) inside of the class declaration.
+\end{description}
+
+\section*{Section 13.9 --- Destructors}
+\begin{description}
+    \item[13.12] The purpose of a constructor is to initialize an object's attributes.
+    \item[13.14] A
+    \item[13.17] A
+\end{description}
+
+\section*{Section 13.12 --- Arrays of Objects}
+\begin{description}
+    \item[13.21] The program will display the following:
+\begin{verbatim}
+10
+20
+50
+\end{verbatim}
+    \item[13.22] The program will display the following:
+\begin{verbatim}
+4
+2
+2
+4
+\end{verbatim}
+\end{description}
+
+\end{document}

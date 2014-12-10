@@ -1,0 +1,118 @@
+% Find-the-Error Problems for Chapter 13
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Chapter 13 Find the Error \\
+       \footnotesize{73, 74, 75}}
+\date{\vspace{-5ex}}
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+\lstset{frame=tb,
+    language=C++,
+    columns=flexible,
+    keepspaces=true,
+    basicstyle={\small\ttfamily},
+    numbers=left,
+    numberstyle=\color{Gray},
+    keywordstyle=\color{BlueViolet},
+    commentstyle=\color{Gray},
+    stringstyle=\color{OliveGreen},
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{description}
+
+    \item[73] Code:
+\begin{lstlisting}
+class Circle:
+{
+private
+    double centerX;
+    double centerY;
+    double radius;
+public
+    setCenter(double, double);
+    setRadius(double);
+}
+\end{lstlisting}
+    The above code has a colon after the class name which should be deleted. The \lstinline{private} and \lstinline{public} labels, in contrast, \emph{need} a colon after each. As well, the public functions defined are missing return type identifiers, and the entire class definition should end with a semicolon (which is missing).
+
+\newpage % explanation splits pages otherwise
+    \item[74] Code:
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+Class Moon;
+{
+Private;
+    double earthWeight;
+    double moonWeight;
+Public;
+    moonWeight(double ew);
+        { earthWeight = ew; moonWeight = earthWeight / 6; }
+    double getMoonWeight();
+        { return moonWeight; }
+}
+
+int main()
+{
+    double earth;
+    cout >> "What is your weight? ";
+    cin << earth;
+    Moon lunar(earth);
+    cout << "On the moon you would weigh "
+         <<lunar.getMoonWeight() << endl;
+    return 0;
+}
+\end{lstlisting}
+    In the above code, the tokens \lstinline{Class}, \lstinline{Public}, and \lstinline{Private} should all be lowercase. The semicolon after the class name declaration \lstinline{Moon} should be removed, and the semicolons after the \lstinline{public} and \lstinline{private} labels should be turned into colons. It appears that the function \lstinline{moonWeight} was supposed to be a constructor, in which case its name should be changed to \lstinline{Moon}. Otherwise, \lstinline{moonWeight} would need a return type, the declaration of the variable \lstinline{lunar} inside of \lstinline{main()} would need to omit any arguments to the constructor function, and the statement \lstinline{lunar.moonWeight(earth);} would need to be added between lines 21 and 22 to give the object's variables appropriate data. In addition to all this, the class definition for \lstinline{Moon} needs to end with a semicolon, and the semicolons following the first lines of the inline public member function definitions need to be removed.
+
+
+\newpage
+    \item[75] Code:
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+class DumbBell;
+{
+    int weight;
+public:
+    void setWeight(int);
+};
+void setWeight(int w)
+{
+    weight = w;
+}
+
+int main()
+{
+    DumbBell bar;
+
+    DumbBell(200);
+    cout << "The weight is " << bar.weight << endl;
+    return 0;
+}
+\end{lstlisting}
+    In the global space of the above code, the semicolon following the name \lstinline{DumbBell} in the class definition should be removed. The function definition of \lstinline{void setWeight(int w)} needs to have the \lstinline{DumbBell} class's namespace prepended to look like this: \lstinline{void DumbBell::setWeight(int w)}.
+
+    Inside of \lstinline{main()}, the call to the \lstinline{DumbBell} constructor with an argument of \lstinline{200} should be a call to \lstinline{setWeight(200)}, and accssing the attribute \lstinline{weight} of \lstinline{bar} is currently impossible without the addition of a class function which will return the value of the private variable \lstinline{weight}. Such a function would be used by putting  \lstinline{bar.getWeight()} in place of \lstinline{bar.weight}.
+
+\end{description}
+
+\end{document}
