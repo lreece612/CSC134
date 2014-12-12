@@ -1,0 +1,136 @@
+% Lab 13 writeup
+% written by Walter B. Vaughan
+
+\documentclass[11pt]{article}
+
+
+\author{Walter B. Vaughan\\
+        \small CSC 134 -- Section 200 -- Fall 2014\\
+        \small Catawba Valley Community College}
+\title{Lab 13}
+\date{\vspace{-5ex}}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[margin=.5in]{geometry}
+\usepackage{indentfirst}
+
+
+\lstset{frame=tb,
+	language=C++,
+	columns=flexible,
+    keepspaces=true,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numberstyle=\color{Gray},
+	keywordstyle=\color{BlueViolet},
+	commentstyle=\color{Gray},
+	stringstyle=\color{OliveGreen},
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Pre-Lab Questions}
+\begin{enumerate}
+    \item A \emph{constructor} is used in C++ to guarantee the initialization of a class instance.
+    \item A constructor has the \emph{same} name as the class itself.
+    \item Member functions are sometimes called \emph{methods} in other object-oriented languages.
+    \item A \emph{destructor} is a member function that is automatically called to destroy an object.
+    \item To access a particular member function, the code must list the object name and the name of the function separated from each other by a \emph{dot (period)}.
+    \item A \emph{default} constructor has no parameters.
+    \item A \emph{tilde (${}_{\texttt{\symbol{126}}}$)} precedes the destructor name in the declaration.
+    \item An \lstinline{inline} member function has its implementation given in the class declaration.
+    \item In an array of objects, if the default constructor is invoked, then it is applied to \emph{each} object in the array.
+    \item A constructor is a member function that is \emph{implicitly} invoked whenever a class instance is created.
+\end{enumerate}
+\newpage
+
+\section*{13.1 --- Squares as a Class}
+\begin{description}
+    \item[Exercise 1] was completed as instructed, and the source code for the program is included as \texttt{square.ex1.cpp}.
+    \item[Exercise 2] was completed as instructed, and the source code for the program is included as \texttt{square.ex2.cpp}.
+\end{description}
+
+\section*{13.2 --- Circles as a Class}
+\begin{description}
+    \item[Exercise 1] was completed as instructed, and the source code for the program is included as \texttt{circles.ex1.cpp}. The modifications to the program did not affect the existing functions and code in \lstinline{main()}.
+    \item[Exercise 2] was completed as instructed, and the source code for the modified program is included as \texttt{circles.ex2.cpp}.
+    \item[Exercise 3] was completed as instructed, and the source code for the modified program is included as \texttt{circles.ex3.cpp}.
+    \item[Exercise 4] was completed as instructed, and the source code for the modified program is included as \texttt{circles.ex4.cpp}. The destructor message gets printed 4 times, once for each Circles object instance created (and thereby destroyed).
+\end{description}
+
+\section*{13.3 --- Arrays as Data Members and Classes}
+\begin{description}
+    \item[Exercise 1:] The \lstinline{const} modifier is used on \lstinline{printList()} function because the function does not modify any part of the object which it's called from. This can help the compiler in performing certain optimizations for the object. \lstinline{getList()}, on the other hand, involves modifying private member variable \lstinline{values[]}, so it cannot be a \lstinline{const} member function.
+    \item[Exercise 2] was completed as instructed, and the source code for the program is included as \texttt{floatarray.ex2.cpp}.
+    \item[Exercise 3] was completed as instructed, and the source code for the modified program is included as \texttt{floatarray.ex3.cpp}. It is worth noting that the functionality of computing the average was added to the destructor, meaning that only 3 lines of code needed to be added.
+\end{description}
+
+\section*{13.4 --- Arrays of Objects}
+\begin{description}
+    \item[Exercise 1] was completed as instructed, and the source code for the finished program is included as \texttt{inventory.cpp}.
+\end{description}
+
+\section*{13.5 --- Student Generated Code Assignments}
+\begin{description}
+    \item[Exercise 1] was completed as directed and the code for the exercise is included as \texttt{13.5.savings.ex1.cpp}.
+    \item[Exercise 2] was completed as directed and the code for the exercise is included as \texttt{13.5.savings.ex2.cpp}. As an aside, the \lstinline{printBalance} member function was rewritten to more accurately display negative account balances (even though the problem did not state a requirement to handle these cases).
+\end{description}
+
+
+\newpage
+{\LARGE Source Code Appendix}
+
+\section*{\texttt{square.ex1.cpp}}
+\lstinputlisting{square.ex1.cpp}
+\newpage
+
+\section*{\texttt{square.ex2.cpp}}
+\lstinputlisting{square.ex2.cpp}
+\newpage
+
+\section*{\texttt{circles.ex1.cpp}}
+\lstinputlisting{circles.ex1.cpp}
+\newpage
+
+\section*{\texttt{circles.ex2.cpp}}
+\lstinputlisting{circles.ex2.cpp}
+\newpage
+
+\section*{\texttt{circles.ex3.cpp}}
+\lstinputlisting{circles.ex3.cpp}
+\newpage
+
+\section*{\texttt{circles.ex4.cpp}}
+\lstinputlisting{circles.ex4.cpp}
+\newpage
+
+\section*{\texttt{floatarray.ex2.cpp}}
+\lstinputlisting{floatarray.ex2.cpp}
+\newpage
+
+\section*{\texttt{floatarray.ex3.cpp}}
+\lstinputlisting{floatarray.ex3.cpp}
+\newpage
+
+\section*{\texttt{inventory.cpp}}
+\lstinputlisting{inventory.cpp}
+\newpage
+
+\section*{\texttt{13.5.savings.ex1.cpp}}
+\lstinputlisting{13.5.savings.ex1.cpp}
+\newpage
+
+\section*{\texttt{13.5.savings.ex2.cpp}}
+\lstinputlisting{13.5.savings.ex2.cpp}
+\newpage
+
+\end{document}
