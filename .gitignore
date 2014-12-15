@@ -14,7 +14,8 @@
 
 # hide TestProject folders
 *TestProject*
-*midterm*
+midterm/*
+final/*
 
 # also ignore compiled output, including pdfs and LaTeX files (dvi, log, aux)
 *.elf
